@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+   workflow_dispatch:
+
+env:
+   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+   build_website:
+        name: Build Website
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v2.3.1
+        
+      - name: Build the jekyll website
+        run: |
+            jekyll build
+            ls -lah
+            ls -lah _site
