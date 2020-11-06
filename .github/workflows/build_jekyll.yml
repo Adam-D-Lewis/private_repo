@@ -31,5 +31,6 @@ jobs:
                 destination-github-username: 'balast'
                 destination-repository-name: 'public_repo'
                 user-email: 'balast@users.noreply.github.com'
-                commit-message: 'publish website'
                 target-branch: 'main'  # if different from master
+                commit-message: 'publish website'
+                
