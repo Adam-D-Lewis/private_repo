@@ -13,15 +13,15 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@v2.3.1
             
-            # - name: Install jekyll
-            #   run: |
-            #     sudo gem install jekyll
+            - name: Install jekyll
+              run: |
+                sudo gem install jekyll
             
-            # - name: Build the jekyll website
-            #   run: |
-            #     jekyll build
-            #     ls -lah
-            #     ls -lah _site
+            - name: Build the jekyll website
+              run: |
+                jekyll build
+                ls -lah
+                ls -lah _site
             
             # https://github.com/marketplace/actions/push-directory-to-another-repository
             - name: Push directory to Public Repo
@@ -31,6 +31,6 @@ jobs:
                 destination-github-username: 'balast'
                 destination-repository-name: 'public_repo'
                 user-email: 'balast@users.noreply.github.com'
-                target-branch: 'main'  # if different from master
+                # target-branch: 'main'  # if different from master
                 commit-message: 'publish website'
                 
