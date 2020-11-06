@@ -3,7 +3,7 @@ name: Build Website
 on: [workflow_dispatch] # manual trigger of action
 
 env:
-   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+   API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
 
 jobs:
    build_website:
@@ -13,12 +13,23 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@v2.3.1
             
-            - name: Install jekyll
-              run: |
-                sudo gem install jekyll
+            # - name: Install jekyll
+            #   run: |
+            #     sudo gem install jekyll
             
-            - name: Build the jekyll website
-              run: |
-                jekyll build
-                ls -lah
-                ls -lah _site
+            # - name: Build the jekyll website
+            #   run: |
+            #     jekyll build
+            #     ls -lah
+            #     ls -lah _site
+            
+            # https://github.com/marketplace/actions/push-directory-to-another-repository
+            - name: Push directory to Public Repo
+              uses: cpina/github-action-push-to-another-repository@v1.1
+              with:
+                source-directory: '.github'
+                destination-github-username: 'balast'
+                destination-repository-name: 'public_repo'
+                user-email: 'balast@users.noreply.github.com'
+                commit-message: 'publish website'
+                target-branch: 'main'
