@@ -1,7 +1,6 @@
 name: Deploy
 
-on:
-   workflow_dispatch:
+on: [workflow_dispatch] # manual trigger of action
 
 env:
    GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
