@@ -27,7 +27,7 @@ jobs:
             - name: Push directory to Public Repo
               uses: cpina/github-action-push-to-another-repository@v1.1
               with:
-                source-directory: '.github'
+                source-directory: '_site'
                 destination-github-username: 'balast'
                 destination-repository-name: 'public_repo'
                 user-email: 'balast@users.noreply.github.com'
